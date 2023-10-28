@@ -9,7 +9,6 @@ namespace PracticeUsingClasses
     internal class toHexadecimal
     {
         private Stack<string> bits = new Stack<string>();
-        private int dispCount = 0;
         private int remainder = 0;
         public void convertHexadecimal(int numToConvert)
         {

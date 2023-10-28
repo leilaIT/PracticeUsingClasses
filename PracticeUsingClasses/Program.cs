@@ -33,19 +33,23 @@ namespace PracticeUsingClasses
             numToConvert = uNum.inputNum();
             Console.Clear();
 
-            //converts to binary
-            toBinary tb = new toBinary();
-            tb.convertBinary(numToConvert);
-            Console.WriteLine();
+            //all conversions
+            allConversion convert = new allConversion();
+            convert.convertAll(numToConvert);
 
-            //converts to octal
-            toOctal to = new toOctal();
-            to.convertOctal(numToConvert);
-            Console.WriteLine();
+            ////converts to binary
+            //toBinary tb = new toBinary();
+            //tb.convertBinary(numToConvert);
+            //Console.WriteLine();
 
-            //converts to hexadecimal
-            toHexadecimal th = new toHexadecimal();
-            th.convertHexadecimal(numToConvert);
+            ////converts to octal
+            //toOctal to = new toOctal();
+            //to.convertOctal(numToConvert);
+            //Console.WriteLine();
+
+            ////converts to hexadecimal
+            //toHexadecimal th = new toHexadecimal();
+            //th.convertHexadecimal(numToConvert);
 
             Console.ReadKey();
         }
