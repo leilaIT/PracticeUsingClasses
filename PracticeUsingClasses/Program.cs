@@ -43,27 +43,12 @@ namespace PracticeUsingClasses
                 //convert again
                 repeat repeat = new repeat();
                 if(!repeat.convertAgain())
-                {
                     break;
-                }
+
                 Console.Clear();
             }
             Console.WriteLine("Calculator is closing. Press any key to exit. . .");
             Console.ReadKey();
         }
-
-        ////converts to binary
-        //toBinary tb = new toBinary();
-        //tb.convertBinary(numToConvert);
-        //Console.WriteLine();
-
-        ////converts to octal
-        //toOctal to = new toOctal();
-        //to.convertOctal(numToConvert);
-        //Console.WriteLine();
-
-        ////converts to hexadecimal
-        //toHexadecimal th = new toHexadecimal();
-        //th.convertHexadecimal(numToConvert);
     }
 }

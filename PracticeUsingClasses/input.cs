@@ -14,15 +14,20 @@ namespace PracticeUsingClasses
         /// <returns> valid number </returns>
         public int inputNum ()
         {
-            int uNum = 0;
+            string uNum = "";
+            bool notValid = false;
+            int num = 0;
             
             while(true)
             {
                 Console.WriteLine("Please input a number between 0 and 65535");
-                uNum = int.Parse(Console.ReadLine());
-                if (uNum > 0 && uNum < 65535)
-                    break;
-                else
+                uNum = Console.ReadLine();
+                if(int.TryParse(uNum, out num))
+                {
+                    if (num > 0 && num < 65535)
+                        break;
+                }
+                if(!notValid)
                 {
                     Console.WriteLine("Invalid input. Press any key to try again.");
                     Console.ReadKey();
@@ -30,7 +35,7 @@ namespace PracticeUsingClasses
                 Console.Clear();
             }
 
-            return uNum;
+            return num;
         }
     }
 }

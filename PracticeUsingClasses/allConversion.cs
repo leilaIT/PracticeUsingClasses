@@ -16,7 +16,6 @@ namespace PracticeUsingClasses
         private int bitCount = 0;
         private int disp = 0;
         private int tempNum = 0;
-
         public void convertAll(int numToConvert)
         {
             tempNum = numToConvert;
@@ -34,7 +33,7 @@ namespace PracticeUsingClasses
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
                         break;
                     case 1: //octal
-                        Console.Write(tempNum+ " in octal is ");
+                        Console.Write(tempNum + " in octal is ");
                         baseNum = 8;
                         bitCount = 6;
                         disp = 3;
@@ -49,65 +48,75 @@ namespace PracticeUsingClasses
                 }
 
                 //conversion
-                while (numToConvert > 0)
-                {
-                    remainder = numToConvert % baseNum;
-                    switch (convertCount)
-                    {
-                        case 0:
-                            if (numToConvert % 2 == 1)
-                            {
-                                bits.Push("1");
-                                numToConvert--;
-                            }
-                            else
-                                bits.Push("0");
-                            break;
-                        case 1:
-                            bits.Push(remainder + "");
-                            break;
-                        case 2:
-                            if (remainder == 10)
-                                bits.Push("A");
-                            else if (remainder == 11)
-                                bits.Push("B");
-                            else if (remainder == 12)
-                                bits.Push("C");
-                            else if (remainder == 13)
-                                bits.Push("D");
-                            else if (remainder == 11)
-                                bits.Push("E");
-                            else if (remainder == 15)
-                                bits.Push("F");
-                            else
-                                bits.Push(remainder + "");
-                            break;
-                    }
-
-                    numToConvert = numToConvert / baseNum;
-                }
+                conversion(numToConvert);
 
                 //display
-                while (bits.Count != bitCount)
-                    bits.Push("0");
+                displayBits();
 
-                while (bits.Count() > 0)
-                {
-                    Console.Write(bits.Pop());
-
-                    if(convertCount != 2)
-                    {
-                        dispCount++;
-                        if (dispCount == disp)
-                        {
-                            Console.Write(" ");
-                            dispCount = 0;
-                        }
-                    }
-                }
                 convertCount++;
                 Console.ResetColor();
                 Console.WriteLine();
+            }
+        }
+        private Stack<string> conversion (int numToConvert)
+        {
+            while (numToConvert > 0)
+            {
+                remainder = numToConvert % baseNum;
+                switch (convertCount)
+                {
+                    case 0:
+                        if (numToConvert % 2 == 1)
+                        {
+                            bits.Push("1");
+                            numToConvert--;
+                        }
+                        else
+                            bits.Push("0");
+                        break;
+                    case 1:
+                        bits.Push(remainder + "");
+                        break;
+                    case 2:
+                        if (remainder == 10)
+                            bits.Push("A");
+                        else if (remainder == 11)
+                            bits.Push("B");
+                        else if (remainder == 12)
+                            bits.Push("C");
+                        else if (remainder == 13)
+                            bits.Push("D");
+                        else if (remainder == 11)
+                            bits.Push("E");
+                        else if (remainder == 15)
+                            bits.Push("F");
+                        else
+                            bits.Push(remainder + "");
+                        break;
+                }
+
+                numToConvert = numToConvert / baseNum;
+            }
+            return bits;
+        }
+        private void displayBits()
+        {
+            while (bits.Count != bitCount)
+                bits.Push("0");
+
+            while (bits.Count() > 0)
+            {
+                Console.Write(bits.Pop());
+
+                if (convertCount != 2)
+                {
+                    dispCount++;
+                    if (dispCount == disp)
+                    {
+                        Console.Write(" ");
+                        dispCount = 0;
+                    }
+                }
             }
         }
     }
