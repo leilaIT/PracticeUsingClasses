@@ -15,32 +15,29 @@ namespace PracticeUsingClasses
         private int convertCount = 0;
         private int bitCount = 0;
         private int disp = 0;
-        private int tempNum = 0;
         public void convertAll(int numToConvert)
         {
-            tempNum = numToConvert;
             while (convertCount < 3)
             {
                 //assigning of variables
-                numToConvert = tempNum;
                 switch (convertCount)
                 {
                     case 0: //binary
-                        Console.Write(tempNum + " in binary is ");
+                        Console.Write(numToConvert + " in binary is ");
                         baseNum = 2;
                         bitCount = 16;
                         disp = 4;
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
                         break;
                     case 1: //octal
-                        Console.Write(tempNum + " in octal is ");
+                        Console.Write(numToConvert + " in octal is ");
                         baseNum = 8;
                         bitCount = 6;
                         disp = 3;
                         Console.ForegroundColor = ConsoleColor.Green;
                         break;
                     case 2: //hexa
-                        Console.Write(tempNum + " in hexadecimal is ");
+                        Console.Write(numToConvert + " in hexadecimal is ");
                         baseNum = 16;
                         bitCount = 4;
                         Console.ForegroundColor = ConsoleColor.Red;
