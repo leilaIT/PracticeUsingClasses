@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Remoting.Lifetime;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PracticeUsingClasses
@@ -28,30 +29,41 @@ namespace PracticeUsingClasses
         static void Main(string[] args)
         {
             //gets user input
-            int numToConvert = 0;
-            input uNum = new input();
-            numToConvert = uNum.inputNum();
-            Console.Clear();
+            while(true)
+            {
+                int numToConvert = 0;
+                input uNum = new input();
+                numToConvert = uNum.inputNum();
+                Console.Clear();
 
-            //all conversions
-            allConversion convert = new allConversion();
-            convert.convertAll(numToConvert);
+                //all conversions
+                allConversion convert = new allConversion();
+                convert.convertAll(numToConvert);
 
-            ////converts to binary
-            //toBinary tb = new toBinary();
-            //tb.convertBinary(numToConvert);
-            //Console.WriteLine();
-
-            ////converts to octal
-            //toOctal to = new toOctal();
-            //to.convertOctal(numToConvert);
-            //Console.WriteLine();
-
-            ////converts to hexadecimal
-            //toHexadecimal th = new toHexadecimal();
-            //th.convertHexadecimal(numToConvert);
-
+                //convert again
+                repeat repeat = new repeat();
+                if(!repeat.convertAgain())
+                {
+                    break;
+                }
+                Console.Clear();
+            }
+            Console.WriteLine("Calculator is closing. Press any key to exit. . .");
             Console.ReadKey();
         }
+
+        ////converts to binary
+        //toBinary tb = new toBinary();
+        //tb.convertBinary(numToConvert);
+        //Console.WriteLine();
+
+        ////converts to octal
+        //toOctal to = new toOctal();
+        //to.convertOctal(numToConvert);
+        //Console.WriteLine();
+
+        ////converts to hexadecimal
+        //toHexadecimal th = new toHexadecimal();
+        //th.convertHexadecimal(numToConvert);
     }
 }

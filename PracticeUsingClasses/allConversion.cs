@@ -22,28 +22,33 @@ namespace PracticeUsingClasses
             tempNum = numToConvert;
             while (convertCount < 3)
             {
+                //assigning of variables
                 numToConvert = tempNum;
                 switch (convertCount)
                 {
-                    case 0:
+                    case 0: //binary
                         Console.Write(tempNum + " in binary is ");
                         baseNum = 2;
                         bitCount = 16;
                         disp = 4;
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         break;
-                    case 1:
+                    case 1: //octal
                         Console.Write(tempNum+ " in octal is ");
                         baseNum = 8;
                         bitCount = 6;
                         disp = 3;
+                        Console.ForegroundColor = ConsoleColor.Green;
                         break;
-                    case 2:
+                    case 2: //hexa
                         Console.Write(tempNum + " in hexadecimal is ");
                         baseNum = 16;
                         bitCount = 4;
+                        Console.ForegroundColor = ConsoleColor.Red;
                         break;
                 }
 
+                //conversion
                 while (numToConvert > 0)
                 {
                     remainder = numToConvert % baseNum;
@@ -82,6 +87,7 @@ namespace PracticeUsingClasses
                     numToConvert = numToConvert / baseNum;
                 }
 
+                //display
                 while (bits.Count != bitCount)
                     bits.Push("0");
 
@@ -100,6 +106,7 @@ namespace PracticeUsingClasses
                     }
                 }
                 convertCount++;
+                Console.ResetColor();
                 Console.WriteLine();
             }
         }
